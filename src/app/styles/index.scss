@@ -1,2 +1,11 @@
 @import 'reset';
 @import 'mixins/mixins';
+@import 'variables/global';
+@import 'themes/light';
+@import 'themes/dark';
+
+body {
+  font: var(--font-medium-800);
+  color: var(--colors-text);
+  background-color: var(--colors-bg);
+}
