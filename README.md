@@ -9,4 +9,5 @@
 - [x] Stylelint
 - [x] SASS (SCSS)
 - [x] Styled Components
+- [x] Axios
 ---
