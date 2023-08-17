@@ -11,4 +11,5 @@
 - [x] Styled Components
 - [x] Axios
 - [x] React Router Dom
+- [x] React select
 ---
