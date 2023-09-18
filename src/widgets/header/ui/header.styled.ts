@@ -1,6 +1,7 @@
 import { styled } from 'styled-components'
 
 export const StyledHeader = styled.header`
+  color: var(--colors-text);
   background-color: var(--colors-ui-base);
   box-shadow: var(--shadow);
 `
@@ -21,12 +22,10 @@ export const Title = styled.a.attrs({
 
 export const ModeSwitcher = styled.button`
   font: var(--font-small-800);
+  text-transform: capitalize;
 
   display: flex;
   align-items: center;
-  gap: 0.5em;
-
-  span {
-    text-transform: capitalize;
-  }
+  gap: 0.75em;
+  min-width: 107.77px;
 `
