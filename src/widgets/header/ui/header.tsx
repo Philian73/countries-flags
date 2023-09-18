@@ -1,5 +1,7 @@
 import { FC, useLayoutEffect, useState } from 'react'
 
+import { IoMoon, IoMoonOutline } from 'react-icons/io5'
+
 import { Title, Wrapper, ModeSwitcher, StyledHeader } from './header.styled'
 
 import { Container } from '@/shared/ui'
@@ -19,7 +21,10 @@ export const Header: FC<PropsType> = ({}) => {
       <Container>
         <Wrapper>
           <Title>Where is the world?</Title>
-          <ModeSwitcher onClick={toggleTheme}></ModeSwitcher>
+          <ModeSwitcher onClick={toggleTheme}>
+            {theme === 'light' ? <IoMoonOutline /> : <IoMoon />}
+            <span>{theme} Theme</span>
+          </ModeSwitcher>
         </Wrapper>
       </Container>
     </StyledHeader>
