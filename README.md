@@ -12,5 +12,6 @@
 - [x] Axios
 - [x] React Router Dom
 - [x] React select
-- [x] React Icons
+- [x] React-icons
+- [x] React-select
 ---
