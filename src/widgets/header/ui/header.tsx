@@ -2,7 +2,7 @@ import { FC, useLayoutEffect, useState } from 'react'
 
 import { Title, Wrapper, ModeSwitcher, StyledHeader } from './header.styled'
 
-import { Container, Icon } from '@/shared/ui'
+import { Container } from '@/shared/ui'
 
 type PropsType = {}
 export const Header: FC<PropsType> = ({}) => {
@@ -19,10 +19,7 @@ export const Header: FC<PropsType> = ({}) => {
       <Container>
         <Wrapper>
           <Title>Where is the world?</Title>
-          <ModeSwitcher onClick={toggleTheme}>
-            <Icon id="moon" fill={theme === 'dark' ? 'currentColor' : 'none'} />{' '}
-            <span>{theme} Theme</span>
-          </ModeSwitcher>
+          <ModeSwitcher onClick={toggleTheme}></ModeSwitcher>
         </Wrapper>
       </Container>
     </StyledHeader>
