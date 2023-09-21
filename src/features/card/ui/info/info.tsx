@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Wrapper, InfoTitle, InfoImage, List, ListGroup, ListItem } from './info.styled'
+import { Wrapper, InfoTitle, InfoImage, ListGroup, Meta, TagGroup } from './info.styled'
 
 import { useInfo } from '@/features/card/hooks'
 import { CountryType } from '@/features/card/model'
@@ -9,7 +9,7 @@ type PropsType = {
   country: CountryType
 }
 export const Info: FC<PropsType> = ({ country }) => {
-  const values = useInfo(country)
+  const { values, neighborsMap } = useInfo(country)
 
   return (
     <Wrapper>
@@ -18,47 +18,55 @@ export const Info: FC<PropsType> = ({ country }) => {
       <div>
         <InfoTitle>{values.name}</InfoTitle>
         <ListGroup>
-          <List>
-            <ListItem>
+          <ul>
+            <li>
               <b>Native Name: </b>
               <span>{values.nativeName}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Population: </b>
               <span>{values.population}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Region: </b>
               <span>{values.region}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Sub Region: </b>
               <span>{values.subregion}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Capital: </b>
               <span>{values.capital}</span>
-            </ListItem>
-          </List>
-          <List>
-            <ListItem>
+            </li>
+          </ul>
+          <ul>
+            <li>
               <b>Flag: </b>
               <span>{values.flag}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Top Level Domain: </b>
               <span>{values.tld}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Currency: </b>
               <span>{values.currency}</span>
-            </ListItem>
-            <ListItem>
+            </li>
+            <li>
               <b>Languages: </b>
               <span>{values.languages}</span>
-            </ListItem>
-          </List>
+            </li>
+          </ul>
         </ListGroup>
+        <Meta>
+          <b>Border Countries</b>
+          {!values.borders ? (
+            <span>There is no border countries</span>
+          ) : (
+            <TagGroup>{neighborsMap}</TagGroup>
+          )}
+        </Meta>
       </div>
     </Wrapper>
   )
