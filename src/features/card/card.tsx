@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { Wrapper, CardBody, CardImage, CardList, CardListItem, CardTitle } from './card.styled'
 import { InfoType } from './model'
 
@@ -7,9 +9,8 @@ type PropsType = {
   img: string
   title: string
   info: InfoType[]
-  onClick?: any
 }
-export const Card: FC<PropsType> = ({ img, title, info = [], onClick }) => {
+export const Card: FC<PropsType> = ({ img, title, info = [] }) => {
   const infoMap = info.map(el => {
     return (
       <CardListItem key={el.title}>
@@ -19,12 +20,14 @@ export const Card: FC<PropsType> = ({ img, title, info = [], onClick }) => {
   })
 
   return (
-    <Wrapper onClick={onClick}>
-      <CardImage src={img} alt={title} />
-      <CardBody>
-        <CardTitle>{title}</CardTitle>
-        <CardList>{infoMap}</CardList>
-      </CardBody>
+    <Wrapper>
+      <Link to={`country/${title}`}>
+        <CardImage src={img} alt={title} />
+        <CardBody>
+          <CardTitle>{title}</CardTitle>
+          <CardList>{infoMap}</CardList>
+        </CardBody>
+      </Link>
     </Wrapper>
   )
 }
