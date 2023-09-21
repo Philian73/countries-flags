@@ -10,20 +10,20 @@ type PropsType = {
   onClick?: any
 }
 export const Card: FC<PropsType> = ({ img, title, info = [], onClick }) => {
+  const infoMap = info.map(el => {
+    return (
+      <CardListItem key={el.title}>
+        <b>{el.title}:</b> {el.description}
+      </CardListItem>
+    )
+  })
+
   return (
     <Wrapper onClick={onClick}>
       <CardImage src={img} alt={title} />
       <CardBody>
         <CardTitle>{title}</CardTitle>
-        <CardList>
-          {info.map(el => {
-            return (
-              <CardListItem key={el.title}>
-                <b>{el.title}:</b> {el.description}
-              </CardListItem>
-            )
-          })}
-        </CardList>
+        <CardList>{infoMap}</CardList>
       </CardBody>
     </Wrapper>
   )
