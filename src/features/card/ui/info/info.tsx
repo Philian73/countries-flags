@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { Wrapper, InfoTitle, InfoImage, List, ListGroup, ListItem } from './info.styled'
 
-import { useInfo } from '@/features/card/hooks/useInfo'
+import { useInfo } from '@/features/card/hooks'
 import { CountryType } from '@/features/card/model'
 
 type PropsType = {
