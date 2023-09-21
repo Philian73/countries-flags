@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Wrapper } from './controls.styled'
 
@@ -12,9 +12,18 @@ const options: OptionType[] = [
   { value: 'Oceania', label: 'Oceania' },
 ]
 
-export const Controls = ({}) => {
+type PropsType = {
+  onSearch: (search: string, region: string) => void
+}
+export const Controls: FC<PropsType> = ({ onSearch }) => {
   const [search, setSearch] = useState('')
   const [region, setRegion] = useState<unknown>('')
+
+  useEffect(() => {
+    const regionValue = (region as { value?: string; label?: string })?.value || ''
+
+    onSearch(search, regionValue)
+  }, [search, region])
 
   return (
     <Wrapper>

@@ -1,4 +1,4 @@
-import { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 
 import { Card } from '@/features/card'
 import { cardsAPI } from '@/features/card/api'
@@ -11,6 +11,8 @@ type PropsType = {
   setCountries: Dispatch<SetStateAction<CountryType[]>>
 }
 export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
+  const [filteredCountries, setFilteredCountries] = useState<CountryType[]>(countries)
+
   useEffect(() => {
     if (!countries.length) {
       ;(async () => {
@@ -19,6 +21,7 @@ export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
           const countries = response.data
 
           setCountries(countries)
+          setFilteredCountries(countries)
         } catch (e) {
           console.warn(e)
         }
@@ -26,7 +29,23 @@ export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
     }
   }, [])
 
-  const countriesMap = countries.map(country => {
+  const handleSearch = (search: string, region: string) => {
+    let data = [...countries]
+
+    if (region) {
+      data = data.filter(country => country.region.includes(region))
+    }
+
+    if (search) {
+      data = data.filter(country =>
+        country.name.common.toLowerCase().includes(search.toLowerCase())
+      )
+    }
+
+    setFilteredCountries(data)
+  }
+
+  const countriesMap = filteredCountries.map(country => {
     const countryInfo: CountryInfoType = {
       img: country.flags.svg,
       title: country.name.common,
@@ -51,7 +70,7 @@ export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
 
   return (
     <>
-      <Controls />
+      <Controls onSearch={handleSearch} />
       <List>{countriesMap}</List>
     </>
   )
