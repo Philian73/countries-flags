@@ -17,8 +17,8 @@ export const CustomSelect = styled(Select).attrs({
       ...provided,
       cursor: 'pointer',
       color: 'var(--colors-text)',
-      font: state.isSelected ? 'var(--font-medium-600)' : '',
-      backgroundColor: state.isSelected ? 'var(--colors-bg)' : 'var(--colors-ui-base)',
+      font: state.isSelected ? 'var(--font-medium-800)' : '',
+      backgroundColor: state.isSelected ? 'var(--colors-bg) !important' : 'var(--colors-ui-base)',
     }),
   },
 })`
