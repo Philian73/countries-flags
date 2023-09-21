@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Card } from '@/features/card'
 import { cardsAPI } from '@/features/card/api'
@@ -6,8 +6,7 @@ import { CountryType, InfoType } from '@/features/card/model'
 import { Controls } from '@/features/controls'
 import { List } from '@/shared/ui'
 
-type PropsType = {}
-export const HomePage: FC<PropsType> = ({}) => {
+export const HomePage = () => {
   const [countries, setCountries] = useState<CountryType[]>([])
 
   useEffect(() => {
