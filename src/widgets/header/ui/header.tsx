@@ -20,7 +20,7 @@ export const Header: FC<PropsType> = ({}) => {
     <StyledHeader>
       <Container>
         <Wrapper>
-          <Title>Where is the world?</Title>
+          <Title to="/">Where is the world?</Title>
           <ModeSwitcher onClick={toggleTheme}>
             {theme === 'light' ? <IoMoonOutline /> : <IoMoon />}
             <span>{theme} Theme</span>

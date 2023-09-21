@@ -15,9 +15,7 @@ export const Wrapper = styled.div`
   padding: 2rem 0;
 `
 
-export const Title = styled(Link).attrs({
-  to: '/',
-})`
+export const Title = styled(Link)`
   font: var(--font-small-800);
 `
 
