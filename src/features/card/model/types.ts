@@ -30,6 +30,7 @@ export type CountryType = {
   languages: {
     [key: string]: string
   }
+  borders?: string[]
 }
 
 export type InfoType = {
