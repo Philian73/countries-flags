@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 export const StyledHeader = styled.header`
@@ -14,8 +15,8 @@ export const Wrapper = styled.div`
   padding: 2rem 0;
 `
 
-export const Title = styled.a.attrs({
-  href: '/',
+export const Title = styled(Link).attrs({
+  to: '/',
 })`
   font: var(--font-small-800);
 `
