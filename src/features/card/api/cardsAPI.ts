@@ -5,4 +5,7 @@ export const cardsAPI = {
   getAllCards() {
     return baseInstance.get<CountryType[]>('all?fields=name,capital,flags,population,region')
   },
+  getCountryByCode(codes: string[]) {
+    return baseInstance.get<CountryType[]>(`alpha?codes=${codes.join(',')}`)
+  },
 }
