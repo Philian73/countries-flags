@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from 'react'
 
 import { IoSearch } from 'react-icons/io5'
 
-import { InputContainer, Input } from './search.styled'
+import { InputContainer, InputSearch } from './search.styled'
 
 type PropsType = {
   search: string
@@ -14,7 +14,7 @@ export const Search: FC<PropsType> = ({ search, setSearch }) => {
   return (
     <InputContainer>
       <IoSearch />
-      <Input onChange={changeSearch} value={search} />
+      <InputSearch onChange={changeSearch} value={search} />
     </InputContainer>
   )
 }

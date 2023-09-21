@@ -20,7 +20,7 @@ export const InputContainer = styled.label`
   }
 `
 
-export const Input = styled.input.attrs({
+export const InputSearch = styled.input.attrs({
   type: 'search',
   placeholder: 'Search...',
 })`
