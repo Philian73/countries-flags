@@ -18,20 +18,12 @@ export const CustomSelect = styled(Select).attrs({
       cursor: 'pointer',
       color: 'var(--colors-text)',
       font: state.isSelected ? 'var(--font-medium-800)' : '',
-      backgroundColor: state.isSelected ? 'var(--colors-bg) !important' : 'var(--colors-ui-base)',
+      backgroundColor: state.isSelected ? 'var(--colors-bg)' : 'var(--colors-ui-base)',
     }),
   },
 })`
   width: 200px;
   border-radius: var(--radii);
-
-  & input {
-    padding: 0.25rem;
-  }
-
-  & div[id] {
-    background-color: var(--colors-ui-base);
-  }
 
   & > * {
     box-shadow: var(--shadow);
@@ -39,5 +31,13 @@ export const CustomSelect = styled(Select).attrs({
 
   & * {
     color: var(--colors-text) !important;
+  }
+
+  & div[id*='listbox'] {
+    background-color: var(--colors-ui-base);
+  }
+
+  & input {
+    padding-left: 0.25rem;
   }
 `
