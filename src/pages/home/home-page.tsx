@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, FC, SetStateAction, useEffect } from 'react'
 
 import { Card } from '@/features/card'
 import { cardsAPI } from '@/features/card/api'
@@ -6,20 +6,24 @@ import { CountryType, InfoType } from '@/features/card/model'
 import { Controls } from '@/features/controls'
 import { List } from '@/shared/ui'
 
-export const HomePage = () => {
-  const [countries, setCountries] = useState<CountryType[]>([])
-
+type PropsType = {
+  countries: CountryType[]
+  setCountries: Dispatch<SetStateAction<CountryType[]>>
+}
+export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
   useEffect(() => {
-    ;(async () => {
-      try {
-        const response = await cardsAPI.getAllCards()
-        const countries = response.data
+    if (!countries.length) {
+      ;(async () => {
+        try {
+          const response = await cardsAPI.getAllCards()
+          const countries = response.data
 
-        setCountries(countries)
-      } catch (e) {
-        console.warn(e)
-      }
-    })()
+          setCountries(countries)
+        } catch (e) {
+          console.warn(e)
+        }
+      })()
+    }
   }, [])
 
   const countriesMap = countries.map(country => {
