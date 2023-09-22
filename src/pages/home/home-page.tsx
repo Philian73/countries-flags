@@ -60,7 +60,7 @@ export const HomePage: FC<PropsType> = ({ countries, setCountries }) => {
         },
         {
           title: 'Capital',
-          description: country.capital.join(', '),
+          description: country.capital ? country.capital.join(', ') : '',
         },
       ],
     }
