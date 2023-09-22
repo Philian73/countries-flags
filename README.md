@@ -1,5 +1,9 @@
-# My portfolio
+# Countries Flags
 
+---
+### FREE API:
+API used:
+[Rest Countries](https://restcountries.com/#endpoints-all)
 ---
 ### Technologies/Libraries:
 - [x] React
@@ -13,5 +17,4 @@
 - [x] React Router Dom
 - [x] React select
 - [x] React-icons
-- [x] React-select
 ---
